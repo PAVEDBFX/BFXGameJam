@@ -5,33 +5,69 @@ using UnityEngine;
 public class BulletProperties : MonoBehaviour
 {
 
-    public float vx0;
+    private float vx0;
     private float vy0;
     private float dx;
     private float dy;
 
-    public float gravity = -9.8f;
+    private float gravity = - 9.8f;
     private float g;
-    public Vector3 target;
+    private Vector3 target;
     private Vector3 start;
 
-    public int damage;
+    private int damage;
 
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 directionOnGround;
+
+    private bool setup = false;
+
+    // You can use this function to fire tbe bullet, it will not work if you haven't done the setup
+    public void Fire ()
     {
+        if (!setup) return;
         g = gravity;
         start = transform.position;
         dx = Mathf.Sqrt(Mathf.Pow(target.z - transform.position.z, 2) + Mathf.Pow(target.x - transform.position.x, 2));
         dy = target.y - transform.position.y;
         float totalTime = dx / vx0;
         vy0 = (dy - (g * totalTime * totalTime / 2)) / totalTime;
+        directionOnGround = new Vector3(target.x, 0, target.z) - new Vector3(start.x, 0, start.z);
+        directionOnGround = directionOnGround / Vector3.Magnitude(directionOnGround);
+
+        Vector3 velocity = directionOnGround * vx0 + Vector3.up * vy0;
+
+        GetComponent<Rigidbody>().velocity = velocity;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+
+    // You can use one of these three functions to set up the bullet
+    public void SetBulletProperties (float horizontalVelocity, GameObject myTarget, int myDamage)
     {
-        float xPos = Time.deltaTime * vx0;
-        float t = xPos / vx0;
+        vx0 = horizontalVelocity;
+        target = myTarget.transform.position;
+        damage = myDamage;
+        setup = true;
+    }
+
+    public void SetBulletProperties(float horizontalVelocity, Transform myTarget, int myDamage)
+    {
+        vx0 = horizontalVelocity;
+        target = myTarget.position;
+        damage = myDamage;
+        setup = true;
+    }
+
+    public void SetBulletProperties(float horizontalVelocity, Vector3 myTarget, int myDamage)
+    {
+        vx0 = horizontalVelocity;
+        target = myTarget;
+        damage = myDamage;
+        setup = true;
+    }
+
+    // Use this function to access the damage value of the bullet
+    public int Damage()
+    {
+        return damage;
     }
 }
