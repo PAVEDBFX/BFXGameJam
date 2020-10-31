@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
@@ -22,7 +23,7 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Debug.Log("We've paused the game ");
         pauseMenuUI.SetActive(true);
@@ -44,6 +45,22 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
+    
+    public void Music()
+    {
+        AudioSource music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
+        if (music.isPlaying)
+        {
+            Debug.Log("Pausing music...");
+            music.Pause();
+        }
+        else
+        {
+            Debug.Log("Playing music...");
+            music.Play();
+        }
+    }
+        
 
     public void QuitGame()
     {
