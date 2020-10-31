@@ -26,6 +26,13 @@ public class PlayerCannon : MonoBehaviour
     private bool idlePosition = true;
     private bool shootingPosition = false;
 
+    private void Start()
+    {
+        cam = GameObject.Find("MainCamera").GetComponent<Camera>();
+        ship = GameObject.Find("Ship");
+        idleTarget = GameObject.Find("IdleTarget").transform;
+    }
+
     // Update is called once per frame
     void Update()
     {

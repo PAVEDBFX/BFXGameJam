@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
             GameObject myBullet = Instantiate(bullet, bulletSpawningPoint.position, Quaternion.identity);
             myBullet.GetComponent<BulletProperties>().SetBulletProperties(bulletSpeed, Player, bulletDamage);
             myBullet.GetComponent<BulletProperties>().Fire();
+
             reloaded = false;
             StartCoroutine(Reload());
         }

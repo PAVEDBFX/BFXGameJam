@@ -42,7 +42,7 @@ public class BulletProperties : MonoBehaviour
 
     public void Update()
     {
-        transform.LookAt(transform.position + GetComponent<Rigidbody>().velocity*10);
+        transform.LookAt(transform.position - GetComponent<Rigidbody>().velocity*10);
     }
 
     // You can use one of these three functions to set up the bullet

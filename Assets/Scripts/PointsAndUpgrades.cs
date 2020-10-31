@@ -43,6 +43,8 @@ public class PointsAndUpgrades : MonoBehaviour
         points = 0;
         upgradeInfoUI.active = false;
         currentWeapon = Instantiate(weapons[weapon], weaponsPosition[0].position, Quaternion.identity);
+        currentWeapon.transform.parent = transform;
+        selectShip(0);
     }
 
     // Update is called once per frame
@@ -59,6 +61,8 @@ public class PointsAndUpgrades : MonoBehaviour
                 currentNecessaryPoints += pointsForFollowingUpdates;
 
                 ship++;
+                selectShip(ship);
+                upgradeInfoUI.active = false;
             }
 
             if (Input.GetKeyDown("2") && weapon < 2)
@@ -70,6 +74,9 @@ public class PointsAndUpgrades : MonoBehaviour
 
                 Destroy(currentWeapon);
                 currentWeapon = Instantiate(weapons[weapon], weaponsPosition[0].position, Quaternion.identity);
+                currentWeapon.transform.parent = transform;
+                upgradeInfoUI.active = false;
+
             }
 
             if (Input.GetKeyDown("3") && shield < 2)
@@ -78,6 +85,8 @@ public class PointsAndUpgrades : MonoBehaviour
                 currentNecessaryPoints += pointsForFollowingUpdates;
 
                 shield++;
+                upgradeInfoUI.active = false;
+
             }
         }
     }
@@ -110,5 +119,16 @@ public class PointsAndUpgrades : MonoBehaviour
         if (shield >= 2) return false;
         if (ship >= 2) return false;
         return true;
+    }
+
+    private void selectShip (int s)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ships[i].active = false;
+            if (s == 1) Destroy(ships[0]);
+            if (s == 2) Destroy(ships[1]);
+        }
+        ships[s].active = true;
     }
 }
