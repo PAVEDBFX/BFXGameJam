@@ -21,6 +21,7 @@ public class PlayerCannon : MonoBehaviour
     public float bulletSpeed;
     public int bulletDamage;
 
+    public bool onlyYaxis;
     private bool reloaded = true;
     private bool idlePosition = true;
     private bool shootingPosition = false;
@@ -43,6 +44,7 @@ public class PlayerCannon : MonoBehaviour
             {
                 Vector3 objectHit = hit.point;
                 direction = objectHit;
+                if ((direction - transform.position).magnitude > 100) return;
                 idlePosition = false;
 
                 baseDirection = new Vector3(direction.x, transform.position.y, direction.z);
@@ -52,9 +54,11 @@ public class PlayerCannon : MonoBehaviour
                 float totalTime = dx / bulletSpeed;
                 float vy0 = (dy - (-9.8f * totalTime * totalTime / 2)) / totalTime;
                 Vector3 directionOnGround = new Vector3(direction.x, 0, direction.z) - new Vector3(transform.position.x, 0, transform.position.z);
-                directionOnGround = directionOnGround.normalized;
+                directionOnGround = -directionOnGround.normalized;
 
-                Vector3 velocity = directionOnGround * bulletSpeed + Vector3.up * vy0;
+                Vector3 velocity = directionOnGround * bulletSpeed;
+
+                if (!onlyYaxis) velocity += Vector3.up * vy0;
 
                 //cannonDirection = direction + new Vector3(0,vy0 * dx / bulletSpeed,0);
 

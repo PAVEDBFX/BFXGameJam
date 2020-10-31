@@ -32,13 +32,18 @@ public class BulletProperties : MonoBehaviour
         float totalTime = dx / vx0;
         vy0 = (dy - (g * totalTime * totalTime / 2)) / totalTime;
         directionOnGround = new Vector3(target.x, 0, target.z) - new Vector3(start.x, 0, start.z);
-        directionOnGround = directionOnGround / Vector3.Magnitude(directionOnGround);
-
+        directionOnGround = directionOnGround.normalized;
+        
         Vector3 velocity = directionOnGround * vx0 + Vector3.up * vy0;
 
         GetComponent<Rigidbody>().velocity = velocity;
+
     }
 
+    public void Update()
+    {
+        transform.LookAt(transform.position + GetComponent<Rigidbody>().velocity*10);
+    }
 
     // You can use one of these three functions to set up the bullet
     public void SetBulletProperties (float horizontalVelocity, GameObject myTarget, int myDamage)
