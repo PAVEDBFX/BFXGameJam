@@ -73,6 +73,7 @@ public class BulletProperties : MonoBehaviour
 
     void FixedUpdate ()
     {
+        // Destroy the bullet if it goes below the water surface
         if (transform.position.y < -20)
         {
             Destroy(gameObject);

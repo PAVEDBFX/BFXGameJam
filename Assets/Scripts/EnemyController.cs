@@ -16,11 +16,13 @@ public class EnemyController : MonoBehaviour
     private bool playerInArea = false;
     private bool reloaded = true;
 
+    // Called by the big trigger volume around the enemy
     public void PlayerInSight (bool visible)
     {
         playerInArea = visible;
     }
 
+    // Called by the small trigger volume of the enemy
     public void EnemyHit (int damage)
     {
         health -= damage;
