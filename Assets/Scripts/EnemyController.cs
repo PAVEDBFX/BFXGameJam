@@ -16,6 +16,11 @@ public class EnemyController : MonoBehaviour
     private bool playerInArea = false;
     private bool reloaded = true;
 
+    private void Start()
+    {
+        Player = GameObject.Find("Ship");
+    }
+
     // Called by the big trigger volume around the enemy
     public void PlayerInSight (bool visible)
     {
