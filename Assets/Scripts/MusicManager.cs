@@ -1,19 +1,21 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
-public class StartMenuController : MonoBehaviour
+public class MusicManager : MonoBehaviour
 {
-    public void playGame()
+    void Awake()
     {
-        Debug.Log("Scene loading");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+
     }
-    public void QuitGame()
-    {
-        Debug.Log("Quitting game...");
-        Application.Quit();
-    }
-    public void Music()
+
+    public void PlayOrPauseSound()
     {
         AudioSource music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         if (music.isPlaying)
