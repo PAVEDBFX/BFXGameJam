@@ -70,4 +70,12 @@ public class BulletProperties : MonoBehaviour
     {
         return damage;
     }
+
+    void FixedUpdate ()
+    {
+        if (transform.position.y < -20)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
