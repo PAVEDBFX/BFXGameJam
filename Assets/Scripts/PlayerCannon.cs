@@ -11,6 +11,7 @@ public class PlayerCannon : MonoBehaviour
     public GameObject cannon;
     public Transform bulletSpawnPosition;
     public float timeToComeBack;
+    public GameObject ship;
 
     private Quaternion baseLookRotation;
     private Quaternion cannonLookRotation;
@@ -53,7 +54,8 @@ public class PlayerCannon : MonoBehaviour
         cannonDirection = direction;
         cannon.transform.LookAt(cannonDirection);
 
-        transform.LookAt(new Vector3(direction.x, transform.position.y, direction.z));
+       // transform.LookAt(new Vector3(direction.x, transform.position.y, direction.z));
+        // transform.rotation = transform.rotation * ship.transform.rotation;
     }
 
 
