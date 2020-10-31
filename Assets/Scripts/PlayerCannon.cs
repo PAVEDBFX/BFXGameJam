@@ -12,13 +12,16 @@ public class PlayerCannon : MonoBehaviour
     public Transform bulletSpawnPosition;
     public float timeToComeBack;
     public GameObject ship;
-
     private Quaternion baseLookRotation;
     private Quaternion cannonLookRotation;
     private Vector3 direction;
     private Vector3 baseDirection;
     private Vector3 cannonDirection;
+    public float timeBetweenShots;
+    public float bulletSpeed;
+    public int bulletDamage;
 
+    private bool reloaded = true;
     private bool idlePosition = true;
     private bool shootingPosition = false;
 
@@ -43,21 +46,48 @@ public class PlayerCannon : MonoBehaviour
                 idlePosition = false;
 
                 baseDirection = new Vector3(direction.x, transform.position.y, direction.z);
-                cannonDirection = direction;
 
+                float dx = Mathf.Sqrt(Mathf.Pow(direction.z - transform.position.z, 2) + Mathf.Pow(direction.x - transform.position.x, 2));
+                float dy = direction.y - transform.position.y;
+                float totalTime = dx / bulletSpeed;
+                float vy0 = (dy - (-9.8f * totalTime * totalTime / 2)) / totalTime;
+                Vector3 directionOnGround = new Vector3(direction.x, 0, direction.z) - new Vector3(transform.position.x, 0, transform.position.z);
+                directionOnGround = directionOnGround.normalized;
 
-                cannon.transform.LookAt(cannonDirection);
+                Vector3 velocity = directionOnGround * bulletSpeed + Vector3.up * vy0;
+
+                //cannonDirection = direction + new Vector3(0,vy0 * dx / bulletSpeed,0);
+
+                cannonDirection = velocity;
+
+                cannon.transform.LookAt(cannonDirection*50);
+
+                if (reloaded)
+                {
+                    GameObject myBullet = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+                    myBullet.GetComponent<BulletProperties>().SetBulletProperties(bulletSpeed, direction, bulletDamage);
+                    myBullet.GetComponent<BulletProperties>().Fire();
+                    reloaded = false;
+                    StartCoroutine(Reload());
+                }
+                
             }
         }
 
  //       direction = direction.normalized;
-        cannonDirection = direction;
-        cannon.transform.LookAt(cannonDirection);
+        //cannonDirection = direction;
+        // cannon.transform.LookAt(cannonDirection);
 
        // transform.LookAt(new Vector3(direction.x, transform.position.y, direction.z));
         // transform.rotation = transform.rotation * ship.transform.rotation;
     }
 
 
-    
+
+    private IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(timeBetweenShots);
+        reloaded = true;
+    }
+
 }

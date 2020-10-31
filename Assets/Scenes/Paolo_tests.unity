@@ -626,6 +626,36 @@ MonoBehaviour:
   bulletSpawningPoint: {fileID: 288678049}
   bulletDamage: 2
   bulletSpeed: 15
+--- !u!1 &325789981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325789982}
+  m_Layer: 0
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325789982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325789981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.108933434, y: -0.08395537, z: 0.5287078}
+  m_LocalScale: {x: 2.723306, y: 2.432371, z: 0.54505944}
+  m_Children: []
+  m_Father: {fileID: 2043434759}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434776363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,11 +2448,14 @@ MonoBehaviour:
   cam: {fileID: 1021283083}
   idleTarget: {fileID: 1596417394}
   rotationSpeed: 2
-  bullet: {fileID: 0}
+  bullet: {fileID: 2272762798312377291, guid: d5a5cf493ccf240e2b824da7452807af, type: 3}
   cannon: {fileID: 2043434758}
-  bulletSpawnPosition: {fileID: 0}
+  bulletSpawnPosition: {fileID: 325789982}
   timeToComeBack: 0
   ship: {fileID: 1214058907}
+  timeBetweenShots: 0.4
+  bulletSpeed: 30
+  bulletDamage: 2
 --- !u!136 &1423002980
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2851,7 +2884,7 @@ GameObject:
   - component: {fileID: 2043434761}
   - component: {fileID: 2043434760}
   m_Layer: 0
-  m_Name: werw
+  m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2867,7 +2900,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.064323425, y: 3.074265, z: -1.823039}
   m_LocalScale: {x: 0.36720073, y: 0.41112152, z: 1.8346624}
-  m_Children: []
+  m_Children:
+  - {fileID: 325789982}
   m_Father: {fileID: 1214058911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
