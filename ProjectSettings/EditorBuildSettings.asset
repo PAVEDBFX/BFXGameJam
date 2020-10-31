@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Menu.unity
     guid: d109e411adfeb874a8ba281764898b69
   - enabled: 1
-    path: Assets/Scenes/Scene_1_With_Pause_Screen.unity
-    guid: 962b5c0f79c57e34498e2ad7c6555129
+    path: Assets/Scenes/Paolo_tests.unity
+    guid: 5e935b6f426a7434c8478d427140d2ec
   m_configObjects: {}
