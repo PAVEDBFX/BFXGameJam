@@ -60,7 +60,22 @@ public class PauseMenuController : MonoBehaviour
             music.Play();
         }
     }
-        
+
+    public void SFX()
+    {
+        AudioSource SFX = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        if (SFX.isPlaying)
+        {
+            Debug.Log("Pausing SFX...");
+            SFX.Pause();
+        }
+        else
+        {
+            Debug.Log("Playing SFX...");
+            SFX.Play();
+        }
+    }
+
 
     public void QuitGame()
     {

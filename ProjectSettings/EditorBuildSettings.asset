@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Paolo_tests.unity
     guid: 5e935b6f426a7434c8478d427140d2ec
+  - enabled: 1
+    path: Assets/Scenes/lose_scene.unity
+    guid: c52463e0a696d4449a84480ba7455e15
   m_configObjects: {}
