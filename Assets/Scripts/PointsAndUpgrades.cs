@@ -40,6 +40,7 @@ public class PointsAndUpgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        upgradeInfoUI = GameObject.Find("UpgradeInfo");
         totPoints = 0;
         currentNecessaryPoints = pointsForFirstUpgrade;
         points = 0;
