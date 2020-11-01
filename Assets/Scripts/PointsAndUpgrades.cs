@@ -133,6 +133,7 @@ public class PointsAndUpgrades : MonoBehaviour
             if (s == 2) Destroy(ships[1]);
         }
         ships[s].active = true;
+        currentWeapon.transform.position = weaponsPosition[s].position;
     }
 
     public void getDamage (int d)
