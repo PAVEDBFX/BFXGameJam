@@ -6,6 +6,8 @@ public class PointsAndUpgrades : MonoBehaviour
 {
 
     public int health;
+    public GameObject canvasForHealth;
+    private int currentHealth;
 
     public int points;
 
@@ -52,6 +54,7 @@ public class PointsAndUpgrades : MonoBehaviour
         currentShield = Instantiate(shields[shield], weaponsPosition[0].position, Quaternion.identity);
         currentShield.transform.parent = transform;
         selectShip(0);
+        currentHealth = health;
     }
 
     // Update is called once per frame
@@ -149,7 +152,8 @@ public class PointsAndUpgrades : MonoBehaviour
 
     public void getDamage (int d)
     {
-        health -= d;
+        currentHealth -= d;
+        canvasForHealth.GetComponent<healthbar>().HandleHealthChanged(100*currentHealth/health);
     }
 
     public int getShield ()

@@ -855,6 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  canvasForHealth: {fileID: 0}
   points: 0
   totPoints: 0
   pointsForEasyEnemy: 4
