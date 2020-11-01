@@ -13,8 +13,6 @@ public class WorldGenerator : MonoBehaviour
     public GameObject[] mediumEnemies;
     public GameObject[] hardEnemies;
 
-    public GameObject[] rocks;
-
     public float density = 0.5f;
 
     private float tileEdge;

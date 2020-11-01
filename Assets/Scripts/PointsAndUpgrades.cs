@@ -140,4 +140,9 @@ public class PointsAndUpgrades : MonoBehaviour
     {
         health -= d;
     }
+
+    public int getShield ()
+    {
+        return shield;
+    } 
 }
