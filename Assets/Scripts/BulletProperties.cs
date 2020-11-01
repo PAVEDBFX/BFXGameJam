@@ -10,6 +10,8 @@ public class BulletProperties : MonoBehaviour
     private float dx;
     private float dy;
 
+    private int maxLife = 8;
+
     private float gravity = - 9.8f;
     private float g;
     private Vector3 target;
@@ -83,5 +85,11 @@ public class BulletProperties : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator timerToDie ()
+    {
+        yield return new WaitForSeconds(maxLife);
+        Destroy(gameObject);
     }
 }

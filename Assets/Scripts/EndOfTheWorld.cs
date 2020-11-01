@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class EndOfTheWorld : MonoBehaviour
 {
 
-    public float worldRadius;
+    public Transform firstCorner;
+    public Transform oppositeCorner;
+
 
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - Vector3.zero).magnitude > worldRadius)
+        if (isOut())
         {
             switch(GetComponent<PointsAndUpgrades>().getShip())
             {
@@ -35,5 +37,15 @@ public class EndOfTheWorld : MonoBehaviour
                     break;
             }
         }        
+    }
+
+
+    bool isOut()
+    {
+        if (transform.position.x > Mathf.Max(firstCorner.transform.position.x, oppositeCorner.transform.position.x)) return true;
+        if (transform.position.x < Mathf.Min(firstCorner.transform.position.x, oppositeCorner.transform.position.x)) return true;
+        if (transform.position.z > Mathf.Max(firstCorner.transform.position.z, oppositeCorner.transform.position.z)) return true;
+        if (transform.position.z < Mathf.Min(firstCorner.transform.position.z, oppositeCorner.transform.position.z)) return true;
+        return false;
     }
 }
