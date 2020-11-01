@@ -12,7 +12,7 @@ public class playRandomEnemySound : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
     }
 
-    void Start()
+    public void Play()
     {
         myAudioSource.clip = audioClipArray[Random.Range(0, audioClipArray.Length)];
         AudioSource.PlayClipAtPoint(myAudioSource.clip, targetObject.transform.position);

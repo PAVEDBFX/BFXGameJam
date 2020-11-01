@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Menu.unity
     guid: d109e411adfeb874a8ba281764898b69
   - enabled: 1
-    path: Assets/Scenes/Paolo_tests.unity
-    guid: 5e935b6f426a7434c8478d427140d2ec
+    path: Assets/Scenes/Dermott_LookDevScene.unity
+    guid: 84a6992470a875d44b6e3160032b3b4b
+  - enabled: 1
+    path: Assets/Scenes/Boat_1_Over_The_Edge.unity
+    guid: b44b780bbf7bb924b931751c67f2b169
+  - enabled: 1
+    path: Assets/Scenes/Boat_2_Over_The_Edge.unity
+    guid: 37c6b5195c0275d44afb878205e48b28
+  - enabled: 1
+    path: Assets/Scenes/Boat_3_Over_The_Edge.unity
+    guid: f7b2fb12532452c48975ba6d855ab238
   - enabled: 1
     path: Assets/Scenes/lose_scene.unity
     guid: c52463e0a696d4449a84480ba7455e15
+  - enabled: 1
+    path: Assets/Scenes/win_scene.unity
+    guid: f8872baafe6fc484da59cc149efdb568
   m_configObjects: {}

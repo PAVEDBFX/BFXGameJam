@@ -39,7 +39,7 @@ Material:
     - Vector1_3B2E3AF0: 0
     - Vector1_53624CAD: 5
     - Vector1_58161CE: 100
-    - Vector1_67D63D81: 50
+    - Vector1_67D63D81: 80
     - Vector1_7374DCC: 1
     - Vector1_85842FD0: 5
     - Vector1_A697CE07: 15
@@ -48,7 +48,7 @@ Material:
     - _FlowSpeed: 0.01
     - _FlowStrength: 0.0075
     - _FoamDistance: 1.53
-    - _Size: 2
+    - _Size: 8
     m_Colors:
     - Color_21A5160B: {r: 0.3285084, g: 0.4875378, b: 1.568627, a: 0}
     - Color_221C0C51: {r: 2, g: 2, b: 2, a: 0}

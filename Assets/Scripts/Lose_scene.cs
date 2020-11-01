@@ -8,10 +8,10 @@ public class Lose_scene : MonoBehaviour
 {
   public void RetryGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
     }
 
-    public void IQuit()
+    public void iQuit()
     {
         Application.Quit();
     }
