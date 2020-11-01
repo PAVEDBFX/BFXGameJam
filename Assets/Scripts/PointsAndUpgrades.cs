@@ -5,6 +5,8 @@ using UnityEngine;
 public class PointsAndUpgrades : MonoBehaviour
 {
 
+    public int health;
+
     public int points;
 
     public int totPoints;
@@ -130,5 +132,10 @@ public class PointsAndUpgrades : MonoBehaviour
             if (s == 2) Destroy(ships[1]);
         }
         ships[s].active = true;
+    }
+
+    public void getDamage (int d)
+    {
+        health -= d;
     }
 }

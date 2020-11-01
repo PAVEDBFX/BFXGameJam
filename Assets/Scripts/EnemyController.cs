@@ -50,6 +50,9 @@ public class EnemyController : MonoBehaviour
         {
             // Things to do when enemy dies
             Player.GetComponent<PointsAndUpgrades>().killedEnemy("easy");
+            // Play some animation
+            // BOHHHHH
+            Destroy(transform.parent.gameObject);
         } 
     }
 
