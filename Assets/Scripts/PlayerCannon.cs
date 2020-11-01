@@ -41,7 +41,7 @@ public class PlayerCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateCannon();
+        // RotateCannon();
 
         if (idlePosition)
         {
@@ -77,7 +77,7 @@ public class PlayerCannon : MonoBehaviour
 
                 cannonDirection = velocity;
 
-               // cannon.transform.LookAt(cannonDirection*50);
+                cannon.transform.LookAt(cannonDirection*50);
 
                 if (reloaded)
                 {

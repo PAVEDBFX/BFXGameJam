@@ -403,6 +403,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7517961363972857356}
     m_Modifications:
+    - target: {fileID: 1580465433498119390, guid: 0e45cb41784da4859ac61f9c4633d020,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5343132002459569552, guid: 7e2fedc73d4694817a349191e2e348e8,
+        type: 3}
     - target: {fileID: 1580465434668907536, guid: 0e45cb41784da4859ac61f9c4633d020,
         type: 3}
       propertyPath: m_Size.y
@@ -690,6 +696,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7517961363972857356}
     m_Modifications:
+    - target: {fileID: 1580465433498119390, guid: 0e45cb41784da4859ac61f9c4633d020,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5343132002459569552, guid: 7e2fedc73d4694817a349191e2e348e8,
+        type: 3}
     - target: {fileID: 1580465434668907536, guid: 0e45cb41784da4859ac61f9c4633d020,
         type: 3}
       propertyPath: m_Size.y
@@ -785,6 +797,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7517961363972857356}
     m_Modifications:
+    - target: {fileID: 1580465433498119390, guid: 0e45cb41784da4859ac61f9c4633d020,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5343132002459569552, guid: 7e2fedc73d4694817a349191e2e348e8,
+        type: 3}
     - target: {fileID: 1580465434668907536, guid: 0e45cb41784da4859ac61f9c4633d020,
         type: 3}
       propertyPath: m_Size.y
