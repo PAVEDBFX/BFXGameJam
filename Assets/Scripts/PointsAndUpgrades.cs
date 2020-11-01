@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PointsAndUpgrades : MonoBehaviour
 {
@@ -156,7 +157,9 @@ public class PointsAndUpgrades : MonoBehaviour
         canvasForHealth.GetComponent<healthbar>().HandleHealthChanged(100*currentHealth/health);
         if (currentHealth <= 0)
         {
-            // load game over scene
+            // TODO
+            SceneManager.LoadScene(0);
+           
         }
     }
 

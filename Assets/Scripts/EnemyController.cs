@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
     public void PlayerInSight (bool visible)
     {
         playerInArea = visible;
+        GetComponent<playRandomEnemySound>().Play();
     }
 
     // Called by the small trigger volume of the enemy
