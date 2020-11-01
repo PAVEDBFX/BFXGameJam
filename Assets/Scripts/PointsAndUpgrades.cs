@@ -154,6 +154,10 @@ public class PointsAndUpgrades : MonoBehaviour
     {
         currentHealth -= d;
         canvasForHealth.GetComponent<healthbar>().HandleHealthChanged(100*currentHealth/health);
+        if (currentHealth <= 0)
+        {
+            // load game over scene
+        }
     }
 
     public int getShield ()
