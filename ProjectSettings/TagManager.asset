@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [Music, EnemyBullet, PlayerBullet]
+  tags:
+  - Music
+  - EnemyBullet
+  - PlayerBullet
+  - SFX
   layers:
   - Default
   - TransparentFX
