@@ -7,8 +7,9 @@ public class PointsAndUpgrades : MonoBehaviour
 {
 
     public int health;
+    public int currentHealth;
+
     public GameObject canvasForHealth;
-    private int currentHealth;
 
     public int points;
 

@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     public void PlayerInSight (bool visible)
     {
         playerInArea = visible;
-        GetComponent<playRandomEnemySound>().Play();
+//        GetComponent<playRandomEnemySound>().Play();
     }
 
     // Called by the small trigger volume of the enemy
@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
             Player.GetComponent<PointsAndUpgrades>().killedEnemy("easy");
             // Play some animation
             // BOHHHHH
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         } 
     }
 
