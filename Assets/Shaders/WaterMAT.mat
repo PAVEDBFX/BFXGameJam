@@ -47,7 +47,7 @@ Material:
     - Vector1_D5082BC1: 1
     - _FlowSpeed: 0.01
     - _FlowStrength: 0.0075
-    - _FoamDistance: 1.5
+    - _FoamDistance: 1.53
     - _Size: 2
     m_Colors:
     - Color_21A5160B: {r: 0.3285084, g: 0.4875378, b: 1.568627, a: 0}
