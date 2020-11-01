@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
         }
 
         if (health <= 0)
-        {
+        {   
             // Things to do when enemy dies
             Player.GetComponent<PointsAndUpgrades>().killedEnemy("easy");
             // Play some animation
