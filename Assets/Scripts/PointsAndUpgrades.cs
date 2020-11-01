@@ -24,8 +24,10 @@ public class PointsAndUpgrades : MonoBehaviour
     public GameObject[] ships;
     public GameObject[] shields;
     public Transform[] weaponsPosition;
+    public Transform[] shieldsPosition;
 
     private GameObject currentWeapon;
+    private GameObject currentShield;
 
     private int currentNecessaryPoints;
 
@@ -47,6 +49,8 @@ public class PointsAndUpgrades : MonoBehaviour
         upgradeInfoUI.active = false;
         currentWeapon = Instantiate(weapons[weapon], weaponsPosition[0].position, Quaternion.identity);
         currentWeapon.transform.parent = transform;
+        currentShield = Instantiate(shields[shield], weaponsPosition[0].position, Quaternion.identity);
+        currentShield.transform.parent = transform;
         selectShip(0);
     }
 
@@ -76,7 +80,8 @@ public class PointsAndUpgrades : MonoBehaviour
                 weapon++;
 
                 Destroy(currentWeapon);
-                currentWeapon = Instantiate(weapons[weapon], weaponsPosition[0].position, Quaternion.identity);
+                currentWeapon = Instantiate(weapons[weapon], weaponsPosition[ship].position, Quaternion.identity);
+                currentWeapon.transform.rotation = transform.rotation;
                 currentWeapon.transform.parent = transform;
                 upgradeInfoUI.active = false;
 
@@ -88,6 +93,11 @@ public class PointsAndUpgrades : MonoBehaviour
                 currentNecessaryPoints += pointsForFollowingUpdates;
 
                 shield++;
+
+                Destroy(currentShield);
+                currentShield = Instantiate(shields[shield], shieldsPosition[ship].position, Quaternion.identity);
+                currentShield.transform.rotation = transform.rotation;
+                currentShield.transform.parent = transform;
                 upgradeInfoUI.active = false;
 
             }
@@ -118,10 +128,10 @@ public class PointsAndUpgrades : MonoBehaviour
 
     private bool IsThereSomethingToUpgrade ()
     {
-        if (weapon >= 2) return false;
-        if (shield >= 2) return false;
-        if (ship >= 2) return false;
-        return true;
+        if (weapon <= 2) return true;
+        if (shield <= 2) return true;
+        if (ship <= 2) return true;
+        return false;
     }
 
     private void selectShip (int s)
@@ -129,11 +139,12 @@ public class PointsAndUpgrades : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             ships[i].active = false;
-            if (s == 1) Destroy(ships[0]);
-            if (s == 2) Destroy(ships[1]);
+            //if (s == 1) Destroy(ships[0]);
+            //if (s == 2) Destroy(ships[1]);
         }
         ships[s].active = true;
         currentWeapon.transform.position = weaponsPosition[s].position;
+        currentShield.transform.position = shieldsPosition[s].position;
     }
 
     public void getDamage (int d)
