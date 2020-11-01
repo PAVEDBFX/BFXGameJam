@@ -155,5 +155,10 @@ public class PointsAndUpgrades : MonoBehaviour
     public int getShield ()
     {
         return shield;
-    } 
+    }
+
+    public int getShip ()
+    {
+        return ship;
+    }
 }
